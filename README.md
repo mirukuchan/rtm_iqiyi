@@ -1,22 +1,21 @@
-ÎÒÈÕTM Ð¡¹í×ÓÕæ²»Éµ ½ð¿ÀÀ¬²»ÄÜ¸øËû
+æˆ‘æ—¥TM å°é¬¼å­çœŸä¸å‚» é‡‘å·åžƒä¸èƒ½ç»™ä»–
 =========
 
-Ä³±ø¿â±±µÄ³¬ÉÙÅ®ºÚ¿Æ¼¼ 2nd EDITION ver2.31
+æŸå…µåº“åŒ—çš„è¶…å°‘å¥³é»‘ç§‘æŠ€ 2nd EDITION ver2.31
 
-¶ÔbishiÀÏÒ¯api²»Ö§³Öjsonp¸Ðµ½Ñ¹Á¦ºÜ´ó >_<
+å¯¹bishiè€çˆ·apiä¸æ”¯æŒjsonpæ„Ÿåˆ°åŽ‹åŠ›å¾ˆå¤§ >_<
 
-## ÈçºÎÊ¹ÓÃ
+## å¦‚ä½•ä½¿ç”¨
 
-* ÓÒ¼üµã»÷ "ÏÂ·½µÄ°´Å¥" £¬Ñ¡ÔñÓÒ¼ü²Ëµ¥ÖÐµÄ "¸´ÖÆÁ´½ÓµØÖ·" £¬È»ºóÊÖ¶¯Ìí¼ÓÊéÇ©£ºËæ±ãÐ´¸öÃû×Ö£¬µØÖ·Õ³Ìù¸´ÖÆµÄÄÚÈÝ¡£
-* Ctrl + B ÏÔÊ¾ÊéÇ©À¸ºó£¬Ö±½Ó½« "ÏÂ·½µÄ°´Å¥" ÍÏ×§µ½ä¯ÀÀÆ÷ÊéÇ©À¸¡£
+* å¤åˆ¶ "ä¸‹æ–¹çš„ä»£ç " ï¼Œç„¶åŽæ‰‹åŠ¨æ·»åŠ ä¹¦ç­¾ï¼šéšä¾¿å†™ä¸ªåå­—ï¼Œåœ°å€ç²˜è´´å¤åˆ¶çš„å†…å®¹ã€‚
 
-## ÎÒÊÇÏÂ·½µÄ°´Å¥
+## æˆ‘æ˜¯ä¸‹æ–¹çš„ä»£ç 
 
-[ÏÂ·½µÄ°´Å¥](javascript:void((function(d){if(!!d){d.toggle();return;};var src='https://raw.github.com/keyfunc/rtm_iqiyi/master/release/rtm_iqiyi.min.js';var e=document.createElement('script');e.setAttribute('src',src);document.getElementsByTagName('head')[0].appendChild(e);})(window.rtm_iqiyi)))
+ `javascript:void((function(d){if(!!d){d.toggle();return;};var src='https://raw.github.com/keyfunc/rtm_iqiyi/master/release/rtm_iqiyi.min.js';var e=document.createElement('script');e.setAttribute('src',src);document.getElementsByTagName('head')[0].appendChild(e);})(window.rtm_iqiyi)) `
 
-## ±¨¸æBug
+## æŠ¥å‘ŠBug
 
-* Èç¹û·¢ÏÖbug Äã¿ÉÒÔÔÚÕâÀïÌá½» [https://github.com/keyfunc/rtm_iqiyi/issues](https://github.com/keyfunc/rtm_iqiyi/issues)
+* å¦‚æžœå‘çŽ°bug ä½ å¯ä»¥åœ¨è¿™é‡Œæäº¤ [https://github.com/keyfunc/rtm_iqiyi/issues](https://github.com/keyfunc/rtm_iqiyi/issues)
 
 ## Copyright and license
 
