@@ -11,7 +11,7 @@
 
 ## 我是下方的代码
 
- `(javascript:void((function(d){if(!!d){d.toggle();return;};var src='https://raw.github.com/keyfunc/rtm_iqiyi/master/release/rtm_iqiyi.min.js';var e=document.createElement('script');e.setAttribute('src',src);document.getElementsByTagName('head')[0].appendChild(e);})(window.rtm_iqiyi)) `
+ `javascript:void((function(d){if(!!d){d.toggle();return;};var src='https://raw.github.com/keyfunc/rtm_iqiyi/master/release/rtm_iqiyi.min.js';var e=document.createElement('script');e.setAttribute('src',src);document.getElementsByTagName('head')[0].appendChild(e);})(window.rtm_iqiyi))`
 
 ## 报告Bug
 
