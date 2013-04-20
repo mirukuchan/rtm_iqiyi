@@ -18,7 +18,7 @@
         ne.id= "bofqi_embed";
         ne.type = "application/x-shockwave-flash";
         ne.width = 950;
-        ne.height = 500;
+        ne.height = 482;
         ne.src = "https://static-s.bilibili.tv/play.swf";
         ne.setAttribute("flashvars", "cid=" + data.query.results.json.cid);
         ne.setAttribute("quality", "high");
@@ -26,7 +26,7 @@
         ne.setAttribute("allowscriptaccess", "always");
         ne.setAttribute("rel", "noreferrer");
         ne.setAttribute("pluginspage", "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash");
-        document.getElementById("bofqi").replaceChild(ne, document.embeds[0]);
+        $("#bofqi").html(ne);
       }
     }
   });
