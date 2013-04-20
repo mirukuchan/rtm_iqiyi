@@ -7,12 +7,7 @@
 
 ## 如何使用
 
-* 复制 "下方的代码" ，然后手动添加书签：随便写个名字，地址粘贴复制的内容。或者复制后直接拖到书签栏也行。
-* 访问B站，对无法播放的视频点击书签按钮即可。
-
-## 我是下方的代码
-
- `javascript:void((function(d){if(!!d){d.toggle();return;};var src='https://raw.github.com/keyfunc/rtm_iqiyi/master/release/rtm_iqiyi.min.js';var e=document.createElement('script');e.setAttribute('src',src);document.getElementsByTagName('head')[0].appendChild(e);})(window.rtm_iqiyi))`
+* [http://keyfunc.github.io/rtm_iqiyi/](http://keyfunc.github.io/rtm_iqiyi/)
 
 ## 报告Bug
 
