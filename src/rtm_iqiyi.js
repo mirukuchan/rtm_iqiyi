@@ -32,3 +32,4 @@
   });
 
 })();
+window.rtm_iqiyi = 1;
