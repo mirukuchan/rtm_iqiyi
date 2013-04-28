@@ -1,4 +1,4 @@
-(window.rtm_iqiyi = (function(w, d, undefined){
+(window.rtm_iqiyi = (function(w, d, dasffsdf){
 
   addTips = function(iqiyi_tips) {
     var pElem = d.createElement("p");
@@ -33,11 +33,11 @@
       iframe.height = 490;
       iframe.width = 950;
       iframe.src = "https://secure.bilibili.tv/secure,cid=" + info.cid + "&amp;aid="+ params[1];
-      iframe.border = 0;
+      iframe.setAttribute("border", 0);
       iframe.setAttribute("scrolling", "no");
       iframe.setAttribute("frameborder", "no");
       iframe.setAttribute("framespacing", 0);
-      iframe.style = "width: 950px; height: 484px; margin-top: 5px;"
+      iframe.setAttribute("style", "width: 950px; height: 484px; margin-top: 5px;");
       bofqi.appendChild(iframe);
       // var play = d.createElement("embed");
       // play.id= "bofqi_embed";
