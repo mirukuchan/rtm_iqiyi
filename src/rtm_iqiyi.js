@@ -37,7 +37,7 @@
       iframe.setAttribute("scrolling", "no");
       iframe.setAttribute("frameborder", "no");
       iframe.setAttribute("framespacing", 0);
-      iframe.setAttribute("style", "width: 950px; height: 484px; margin-top: 5px;");
+      iframe.setAttribute("style", "width: 950px; height: 588px; margin-top: 5px;");
       bofqi.appendChild(iframe);
       // var play = d.createElement("embed");
       // play.id= "bofqi_embed";
