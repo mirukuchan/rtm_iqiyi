@@ -1,4 +1,4 @@
-window.rtm_iqiyi = (function(w, d, undefined){
+(window.rtm_iqiyi = (function(w, d, undefined){
 
   addTips = function(iqiyi_tips) {
     var pElem = d.createElement("p");
@@ -42,7 +42,9 @@ window.rtm_iqiyi = (function(w, d, undefined){
       play.setAttribute("rel", "noreferrer");
       play.setAttribute("pluginspage", "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash");
       bofqi.appendChild(play);
-      addTips(iqiyi_tips, "Mission Completed", "嗶哩嗶哩 - ( ゜- ゜)つロ  乾杯~");
+      (w.rtm_iqiyi = function() {
+        addTips(iqiyi_tips, "Mission Completed", "嗶哩嗶哩 - ( ゜- ゜)つロ  乾杯~");
+      })();
     } else {
       addTips(iqiyi_tips, "非常抱歉, bishi姥爷不肯给神秘代码", "要不你吼一声\"兵库北\"后再试试?");
       w.rtm_iqiyi = null;
@@ -70,7 +72,7 @@ window.rtm_iqiyi = (function(w, d, undefined){
 
   var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url=%22" + encodeURIComponent(api) + "%22&format=json&callback=cbfunc";
 
-  if (!d.getElementById("bofqi_embed")) return (function() {
+  if (!!document.getElementById("bofqi_embed")) return (function() {
     addTips(iqiyi_tips, "bilibili满状态中", "＼(・ω・＼)丧尸！(／・ω・)／bishi");
   });
 
@@ -85,10 +87,9 @@ window.rtm_iqiyi = (function(w, d, undefined){
     jsonp = null;
   };
   head.appendChild(jsonp);
-  addTips(iqiyi_tips, "正在获取神秘代码");
 
   return (function() {
-    addTips(iqiyi_tips, " (ﾉ｀Д´)ﾉ 神秘代码都给你了, 你还调戏我干嘛!!!");
+    addTips(iqiyi_tips, "正在获取神秘代码");
   });
 
-})(window, document);
+})(window, document))();
