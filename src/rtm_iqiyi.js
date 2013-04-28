@@ -28,20 +28,30 @@
   cbfunc = function() {
     var info = arguments[0].query.results.json;
     if(info.cid != undefined) {
-      var play = d.createElement("embed");
       addTips(iqiyi_tips, "获取神秘代码成功", "神秘代码ID: " + info.cid);
-      play.id= "bofqi_embed";
-      play.type = "application/x-shockwave-flash";
-      play.width = 950;
-      play.height = 482;
-      play.src = "https://static-s.bilibili.tv/play.swf";
-      play.setAttribute("flashvars", "cid=" + info.cid);
-      play.setAttribute("quality", "high");
-      play.setAttribute("allowfullscreen", "true");
-      play.setAttribute("allowscriptaccess", "always");
-      play.setAttribute("rel", "noreferrer");
-      play.setAttribute("pluginspage", "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash");
-      bofqi.appendChild(play);
+      var iframe = d.createElement("iframe");
+      iframe.height = 490;
+      iframe.width = 950;
+      iframe.src = "https://secure.bilibili.tv/secure,cid=" + info.cid + "&amp;aid="+ params[1];
+      iframe.border = 0;
+      iframe.setAttribute("scrolling", "no");
+      iframe.setAttribute("frameborder", "no");
+      iframe.setAttribute("framespacing", 0);
+      iframe.style = "width: 950px; height: 484px; margin-top: 5px;"
+      bofqi.appendChild(iframe);
+      // var play = d.createElement("embed");
+      // play.id= "bofqi_embed";
+      // play.type = "application/x-shockwave-flash";
+      // play.width = 950;
+      // play.height = 482;
+      // play.src = "https://static-s.bilibili.tv/play.swf";
+      // play.setAttribute("flashvars", "cid=" + info.cid);
+      // play.setAttribute("quality", "high");
+      // play.setAttribute("allowfullscreen", "true");
+      // play.setAttribute("allowscriptaccess", "always");
+      // play.setAttribute("rel", "noreferrer");
+      // play.setAttribute("pluginspage", "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash");
+      // bofqi.appendChild(play);
       (w.rtm_iqiyi = function() {
         addTips(iqiyi_tips, "Mission Completed", "嗶哩嗶哩 - ( ゜- ゜)つロ  乾杯~");
       })();
@@ -62,7 +72,8 @@
   iqiyi_tips.id = "_riqy_tips";
   d.body.appendChild(iqiyi_tips);
 
-  var params = /http:\/\/www\.bilibili\.tv\/video\/av([0-9]+)\/(?:index_([0-9]+)\.html)?/.exec(d.URL);
+  params = /http:\/\/www\.bilibili\.tv\/video\/av([0-9]+)\/(?:index_([0-9]+)\.html)?/.exec(d.URL);
+  var iframePlay = /https:\/\/secure\.bilibili\.tv\/secure,cid=([0-9]+)(?:&aid=([0-9]+))?/;
 
   if (!params) return (function() {
     addTips(iqiyi_tips, "扬帆远洋扫广场", "民主自由不可挡");
@@ -72,7 +83,15 @@
 
   var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url=%22" + encodeURIComponent(api) + "%22&format=json&callback=cbfunc";
 
-  if (!!document.getElementById("bofqi_embed")) return (function() {
+  if (!!d.getElementById("bofqi_embed") || (function() {
+    iframes = d.getElementsByTagName("iframe");
+    for (key in iframes) {
+      if (!!iframePlay.exec(iframes[key].src)) {
+        return true;
+      }
+    }
+    return false;
+  }())) return (function() {
     addTips(iqiyi_tips, "bilibili满状态中", "＼(・ω・＼)丧尸！(／・ω・)／bishi");
   });
 
