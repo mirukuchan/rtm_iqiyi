@@ -1,10 +1,6 @@
 window.rtm_iqiyi = (function(w, d, undefined){
 
-  var params = /http:\/\/www\.bilibili\.tv\/video\/av([0-9]+)\/(?:index_([0-9]+)\.html)?/.exec(d.URL);
-  
-  if (!params) return -1;
-
-  var addTips = function(iqiyi_tips) {
+  addTips = function(iqiyi_tips) {
     var pElem = d.createElement("p");
     for (var i = 1; i < arguments.length; i++) {
       var span = d.createElement("span");
@@ -15,14 +11,14 @@ window.rtm_iqiyi = (function(w, d, undefined){
     hidden(pElem, 5000);
   };
 
-  var hidden = function(elem, sleep) {
+  hidden = function(elem, sleep) {
     setTimeout(function() {
       var opacity = 1;
       var pid = setInterval(function() {
         opacity -= 0.01;
         elem.style.opacity = opacity;
         if (opacity < 0) {
-          window.clearInterval(pid);
+          w.clearInterval(pid);
           elem.parentNode.removeChild(elem);
         } 
       }, 20);
@@ -46,13 +42,13 @@ window.rtm_iqiyi = (function(w, d, undefined){
       play.setAttribute("rel", "noreferrer");
       play.setAttribute("pluginspage", "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash");
       bofqi.appendChild(play);
+      addTips(iqiyi_tips, "Mission Completed", "嗶哩嗶哩 - ( ゜- ゜)つロ  乾杯~");
+    } else {
+      addTips(iqiyi_tips, "非常抱歉, bishi姥爷不肯给神秘代码", "要不你吼一声\"兵库北\"后再试试?");
+      w.rtm_iqiyi = null;
     }
-    addTips(iqiyi_tips, "Mission Completed", "嗶哩嗶哩 - ( ゜- ゜)つロ  乾杯~");
   };
 
-  var api = "http://api.bilibili.tv/view?type=json&appkey=12737ff7776f1ade&id=" + params[1] + ((params[2] != undefined) ? "&page=" + params[2] : "");
-
-  var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url=%22" + encodeURIComponent(api) + "%22&format=json&callback=cbfunc";
   var head = d.getElementsByTagName("head")[0];
 
   var style = d.createElement("style");
@@ -64,6 +60,20 @@ window.rtm_iqiyi = (function(w, d, undefined){
   iqiyi_tips.id = "_riqy_tips";
   d.body.appendChild(iqiyi_tips);
 
+  var params = /http:\/\/www\.bilibili\.tv\/video\/av([0-9]+)\/(?:index_([0-9]+)\.html)?/.exec(d.URL);
+
+  if (!params) return (function() {
+    addTips(iqiyi_tips, "扬帆远洋扫广场", "民主自由不可挡");
+  });
+
+  var api = "http://api.bilibili.tv/view?type=json&appkey=12737ff7776f1ade&id=" + params[1] + ((params[2] != undefined) ? "&page=" + params[2] : "");
+
+  var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url=%22" + encodeURIComponent(api) + "%22&format=json&callback=cbfunc";
+
+  if (!d.getElementById("bofqi_embed")) return (function() {
+    addTips(iqiyi_tips, "bilibili满状态中", "＼(・ω・＼)丧尸！(／・ω・)／bishi");
+  });
+
   var bofqi = d.getElementById("bofqi");
   bofqi.innerHTML = "";
   addTips(iqiyi_tips, "成功干掉原先的播放器");
@@ -72,12 +82,13 @@ window.rtm_iqiyi = (function(w, d, undefined){
   jsonp.setAttribute("src", url);
   jsonp.onload = function() {
     this.parentNode.removeChild(this);
-    this.onload = null;
     jsonp = null;
   };
   head.appendChild(jsonp);
-  addTips(iqiyi_tips, "准备获取神秘代码");
+  addTips(iqiyi_tips, "正在获取神秘代码");
 
-  return 200;
+  return (function() {
+    addTips(iqiyi_tips, " (ﾉ｀Д´)ﾉ 神秘代码都给你了, 你还调戏我干嘛!!!");
+  });
 
 })(window, document);
