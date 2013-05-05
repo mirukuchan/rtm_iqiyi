@@ -1,6 +1,6 @@
-(window.rtm_iqiyi = (function(w, d, dasffsdf){
+(window.rtm_iqiyi = (function(w, d){
 
-  addTips = function(iqiyi_tips) {
+  __addTips = function(iqiyi_tips) {
     var pElem = d.createElement("p");
     for (var i = 1; i < arguments.length; i++) {
       var span = d.createElement("span");
@@ -8,10 +8,10 @@
       pElem.appendChild(span);
     };
     iqiyi_tips.appendChild(pElem);
-    hidden(pElem, 5000);
+    __hidden(pElem, 5000);
   };
 
-  hidden = function(elem, sleep) {
+  __hidden = function(elem, sleep) {
     setTimeout(function() {
       var opacity = 1;
       var pid = setInterval(function() {
@@ -28,7 +28,7 @@
   cbfunc = function() {
     var info = arguments[0].query.results.json;
     if(info.cid != undefined) {
-      addTips(iqiyi_tips, "获取神秘代码成功", "神秘代码ID: " + info.cid);
+      __addTips(iqiyi_tips, "获取神秘代码成功", "神秘代码ID: " + info.cid);
       var iframe = d.createElement("iframe");
       iframe.height = 490;
       iframe.width = 950;
@@ -37,7 +37,7 @@
       iframe.setAttribute("scrolling", "no");
       iframe.setAttribute("frameborder", "no");
       iframe.setAttribute("framespacing", 0);
-      iframe.setAttribute("style", "width: 950px; height: 588px; margin-top: 5px;");
+      //iframe.setAttribute("style", "width: 950px; height: 588px; margin-top: 5px;");
       bofqi.appendChild(iframe);
       // var play = d.createElement("embed");
       // play.id= "bofqi_embed";
@@ -52,11 +52,36 @@
       // play.setAttribute("rel", "noreferrer");
       // play.setAttribute("pluginspage", "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash");
       // bofqi.appendChild(play);
+
+      //增加iframe通讯功能
+      if (window.postMessage) {
+        var onMessage = function(e) {
+          if (e.origin == "https://secure.bilibili.tv" && e.data.substr(0, 6) == "secJS:") {
+            eval(e.data.substr(6));
+          }
+          // if (typeof(console.log) != "undefined") {
+          //   console.log(e.origin + ": " + e.data);
+          // }
+        };
+        if (window.addEventListener) {
+          window.addEventListener("message", onMessage, false);
+        } else if (window.attachEvent) {
+          window.attachEvent("onmessage", onMessage);
+        }
+      } else {
+        setInterval(function() {
+          if (evalCode = __GetCookie('__secureJS')) {
+            __SetCookie('__secureJS', '');
+            eval(evalCode);
+          }
+        }, 1000);
+      }
+
       (w.rtm_iqiyi = function() {
-        addTips(iqiyi_tips, "Mission Completed", "嗶哩嗶哩 - ( ゜- ゜)つロ  乾杯~");
+        __addTips(iqiyi_tips, "Mission Completed", "嗶哩嗶哩 - ( ゜- ゜)つロ  乾杯~");
       })();
     } else {
-      addTips(iqiyi_tips, "非常抱歉, bishi姥爷不肯给神秘代码", "要不你吼一声\"兵库北\"后再试试?");
+      __addTips(iqiyi_tips, "非常抱歉, bishi姥爷不肯给神秘代码", "要不你吼一声\"兵库北\"后再试试?");
       w.rtm_iqiyi = null;
     }
   };
@@ -76,7 +101,7 @@
   var iframePlay = /https:\/\/secure\.bilibili\.tv\/secure,cid=([0-9]+)(?:&aid=([0-9]+))?/;
 
   if (!params) return (function() {
-    addTips(iqiyi_tips, "扬帆远洋扫广场", "民主自由不可挡");
+    __addTips(iqiyi_tips, "扬帆远洋扫广场", "民主自由不可挡");
   });
 
   var api = "http://api.bilibili.tv/view?type=json&appkey=12737ff7776f1ade&id=" + params[1] + ((params[2] != undefined) ? "&page=" + params[2] : "");
@@ -92,12 +117,12 @@
     }
     return false;
   }())) return (function() {
-    addTips(iqiyi_tips, "bilibili满状态中", "＼(・ω・＼)丧尸！(／・ω・)／bishi");
+    __addTips(iqiyi_tips, "bilibili满状态中", "＼(・ω・＼)丧尸！(／・ω・)／bishi");
   });
 
   var bofqi = d.getElementById("bofqi");
   bofqi.innerHTML = "";
-  addTips(iqiyi_tips, "成功干掉原先的播放器");
+  __addTips(iqiyi_tips, "成功干掉原先的播放器");
 
   var jsonp = d.createElement("script");
   jsonp.setAttribute("src", url);
@@ -108,7 +133,7 @@
   head.appendChild(jsonp);
 
   return (function() {
-    addTips(iqiyi_tips, "正在获取神秘代码");
+    __addTips(iqiyi_tips, "正在获取神秘代码");
   });
 
 })(window, document))();
