@@ -5,6 +5,10 @@
 
 对bishi老爷api不支持jsonp感到压力很大 >_<
 
+## 更新日志
+
+20130513 增加了第三方评论能力
+
 ## 如何使用
 
 * [http://keyfunc.github.io/rtm_iqiyi/](http://keyfunc.github.io/rtm_iqiyi/)
