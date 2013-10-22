@@ -132,22 +132,22 @@
   };
   head.appendChild(jsonp);
 
-  __addTips(iqiyi_tips, "开启第三方评论");
+  // __addTips(iqiyi_tips, "开启第三方评论");
 
-  var comm = d.getElementsByClassName("comm")[0];
-  comm.removeChild(comm.getElementsByTagName("img")[0] || comm.getElementsByClassName("no_more")[0]);
+  // var comm = d.getElementsByClassName("comm")[0];
+  // comm.removeChild(comm.getElementsByTagName("img")[0] || comm.getElementsByClassName("no_more")[0]);
 
-  var disqus_area = d.createElement("div");
-  disqus_area.setAttribute("style", "padding: 10px 15px");
-  disqus_area.innerHTML = '<div id="disqus_thread"></div><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>';
-  comm.appendChild(disqus_area);
+  // var disqus_area = d.createElement("div");
+  // disqus_area.setAttribute("style", "padding: 10px 15px");
+  // disqus_area.innerHTML = '<div id="disqus_thread"></div><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>';
+  // comm.appendChild(disqus_area);
 
-  disqus_shortname = 'bilibili';
-  var dsq = d.createElement('script'); 
-  dsq.type = 'text/javascript'; 
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  head.appendChild(dsq);
+  // disqus_shortname = 'bilibili';
+  // var dsq = d.createElement('script'); 
+  // dsq.type = 'text/javascript'; 
+  // dsq.async = true;
+  // dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  // head.appendChild(dsq);
 
   return (function() {
     __addTips(iqiyi_tips, "正在获取神秘代码");
