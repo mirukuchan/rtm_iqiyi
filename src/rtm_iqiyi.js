@@ -30,9 +30,10 @@
     if(info.cid != undefined) {
       __addTips(iqiyi_tips, "获取神秘代码成功", "神秘代码ID: " + info.cid);
       var iframe = d.createElement("iframe");
-      iframe.height = 490;
+      iframe.height = 482;
       iframe.width = 950;
       iframe.src = "https://secure.bilibili.tv/secure,cid=" + info.cid + "&amp;aid="+ params[1];
+      iframe.setAttribute("class", "player");
       iframe.setAttribute("border", 0);
       iframe.setAttribute("scrolling", "no");
       iframe.setAttribute("frameborder", "no");
