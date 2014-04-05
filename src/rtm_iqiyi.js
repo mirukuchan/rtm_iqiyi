@@ -4,7 +4,11 @@
     var pElem = d.createElement("p");
     for (var i = 1; i < arguments.length; i++) {
       var span = d.createElement("span");
-      span.innerText = arguments[i];
+      if (typeof span.textContent !== 'undefined') {
+        span.textContent = arguments[i];
+      } else {
+        span.innerText = arguments[i];
+      }
       pElem.appendChild(span);
     };
     iqiyi_tips.appendChild(pElem);
@@ -20,7 +24,7 @@
         if (opacity < 0) {
           w.clearInterval(pid);
           elem.parentNode.removeChild(elem);
-        } 
+        }
       }, 20);
     }, sleep);
   };
@@ -144,8 +148,8 @@
   // comm.appendChild(disqus_area);
 
   // disqus_shortname = 'bilibili';
-  // var dsq = d.createElement('script'); 
-  // dsq.type = 'text/javascript'; 
+  // var dsq = d.createElement('script');
+  // dsq.type = 'text/javascript';
   // dsq.async = true;
   // dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
   // head.appendChild(dsq);
